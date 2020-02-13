@@ -14,16 +14,14 @@ public class DieselEngineModule {
     public DieselEngineModule(int horsePower) {
         this.horsePower = horsePower;
     }
+    @Provides
+    int provideHorsePower(){
+        return horsePower;
+    }
 
     @Provides
-    Engine provideEngine() {
-        //instead of passing the horsepower directly into the constructor
-/*
-* we could have created a provides method for horsepower
-* this is necessarily if we want the horsepower in other places as well
-* In real app , this is often the case with the application context
-* */
-        return new DieselEngine(horsePower);
+    Engine provideEngine(DieselEngine engine) {
+    return engine;
     }
 
 }
