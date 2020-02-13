@@ -5,11 +5,25 @@ import com.android.myapplication.dagger_codinginflow.car.Engine;
 
 import dagger.Binds;
 import dagger.Module;
+import dagger.Provides;
 
 @Module
-public abstract class DieselEngineModule {
-    @Binds
-    //we can directly pass the petrol engine here because constructor is already annotated with @Inject
-    abstract Engine bindEngine(DieselEngine engine);
+public class DieselEngineModule {
+    private int horsePower;
+
+    public DieselEngineModule(int horsePower) {
+        this.horsePower = horsePower;
+    }
+
+    @Provides
+    Engine provideEngine() {
+        //instead of passing the horsepower directly into the constructor
+/*
+* we could have created a provides method for horsepower
+* this is necessarily if we want the horsepower in other places as well
+* In real app , this is often the case with the application context
+* */
+        return new DieselEngine(horsePower);
+    }
 
 }

@@ -8,7 +8,8 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class WheelsModule {
+//always make your module abstract if all of your provides method are static
+public abstract class WheelsModule {
     //methods are static because they do not depends on the instance of this class
     //so whenever we have methods in the module class that are independent of its instances
     //we should use static for better performance
