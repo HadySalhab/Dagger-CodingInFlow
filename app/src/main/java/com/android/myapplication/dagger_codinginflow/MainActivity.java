@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-         mActivityComponent = ((ExampleApp)getApplication()).getAppComponent().getActivityComponent(new DieselEngineModule(120));
+         mActivityComponent = ((ExampleApp)getApplication()).getAppComponent().getActivityComponentFactory()
+                 .create(150,1500);
         mActivityComponent.inject(this);
 
         car1.drive();

@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.android.myapplication.dagger_codinginflow.dagger.AppComponent;
 import com.android.myapplication.dagger_codinginflow.dagger.DaggerAppComponent;
+import com.android.myapplication.dagger_codinginflow.dagger.modules.DriverModule;
 
 public class  ExampleApp extends Application {
     private AppComponent mAppComponent;
@@ -13,7 +14,7 @@ public class  ExampleApp extends Application {
         super.onCreate();
         //we dont have any @BindsInstance or module that their constructor
         //requires some argument, so we use create instead of build
-        mAppComponent = DaggerAppComponent.create();
+        mAppComponent = DaggerAppComponent.factory().create(new DriverModule("Hans"));
 
     }
     public AppComponent getAppComponent(){

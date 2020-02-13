@@ -11,8 +11,11 @@ import dagger.Component;
 @Singleton
 @Component(modules = DriverModule.class)
 public interface AppComponent {
-    //only the return type is important
-    //name can be anything
-    //we have to pass all modules of the child component that does not have default constructor
-    ActivityComponent getActivityComponent(DieselEngineModule dieselEngineModule);
+    ActivityComponent.Factory getActivityComponentFactory();
+
+    @Component.Factory
+    interface Factory{
+        //since the driverModule has no default constructor , we have to pass it in the create method
+        AppComponent create(DriverModule driverModule);
+    }
 }

@@ -13,7 +13,7 @@ import dagger.Component;
 import dagger.Subcomponent;
 
 @PerActivity
-@Subcomponent(modules = {WheelsModule.class, DieselEngineModule.class})
+@Subcomponent(modules = {WheelsModule.class, PetrolEngineModule.class})
 public interface ActivityComponent {
     //the name of the method does not matter
 
@@ -24,7 +24,9 @@ public interface ActivityComponent {
     //we have to be specific in the parameter which class we want to inject
     void inject(MainActivity mainActivity);
 
-/*    @Component.Builder
+
+/*
+    @Subcomponent.Builder
     interface Builder {
         @BindsInstance
             //Similar to provides,this method allows dagger to provide an int value
@@ -36,8 +38,15 @@ public interface ActivityComponent {
         @BindsInstance
         Builder engineCapacity(@Named("engine capacity") int engineCapacity);
 
-        Builder appComponent(AppComponent component);
-
         ActivityComponent build(); //we have to add this method, we cannot avoid it
-    }*/
+    }
+*/
+
+    @Subcomponent.Factory
+    interface Factory{
+
+        ActivityComponent create(@BindsInstance @Named ("horse power") int horsepower,
+                                 @BindsInstance @Named ("engine capacity") int engineCapcity
+                                 ); //we have to add this method
+    }
 }
