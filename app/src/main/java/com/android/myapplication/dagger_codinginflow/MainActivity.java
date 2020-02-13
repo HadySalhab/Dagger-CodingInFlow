@@ -5,38 +5,31 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.myapplication.dagger_codinginflow.car.Car;
-import com.android.myapplication.dagger_codinginflow.dagger.CarComponent;
-import com.android.myapplication.dagger_codinginflow.dagger.DaggerCarComponent;
+import com.android.myapplication.dagger_codinginflow.dagger.ActivityComponent;
+import com.android.myapplication.dagger_codinginflow.dagger.DaggerActivityComponent;
+
+import javax.inject.Inject;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    @Inject
     Car car1;
 
+    @Inject
     Car car2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CarComponent carComponent1 = DaggerCarComponent
-                .builder()
-                .horsePower(150)
+
+        ActivityComponent carComponent = DaggerActivityComponent.builder()
+                .horsePower(120)
                 .engineCapacity(1400)
+                .appComponent(((ExampleApp)getApplication()).getAppComponent())
                 .build();
-        //will inject all the member variables of this class, that are annotated with @Inject
-        /*carComponent.inject(this);*/
-
-        CarComponent carComponent2 = DaggerCarComponent
-                .builder()
-                .horsePower(150)
-                .engineCapacity(1400)
-                .build();
-
-
-        //each component will provide different instance singleton
-        car1 = carComponent1.getCar();
-        car2 = carComponent2.getCar();
+        carComponent.inject(this);
 
         car1.drive();
         car2.drive();

@@ -1,19 +1,16 @@
 package com.android.myapplication.dagger_codinginflow.dagger;
 
-import androidx.core.app.RemoteInput;
-
 import com.android.myapplication.dagger_codinginflow.MainActivity;
 import com.android.myapplication.dagger_codinginflow.car.Car;
 
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
 
-@Singleton
-@Component(modules = {WheelsModule.class, PetrolEngineModule.class})
-public interface CarComponent {
+@PerActivity
+@Component(dependencies = AppComponent.class,modules = {WheelsModule.class, PetrolEngineModule.class})
+public interface ActivityComponent {
     //the name of the method does not matter
     Car getCar();
 
@@ -34,7 +31,8 @@ public interface CarComponent {
         @BindsInstance
         Builder engineCapacity(@Named("engine capacity") int engineCapacity);
 
+        Builder appComponent(AppComponent component);
 
-        CarComponent build(); //we have to add this method, we cannot avoid it
+        ActivityComponent build(); //we have to add this method, we cannot avoid it
     }
 }
