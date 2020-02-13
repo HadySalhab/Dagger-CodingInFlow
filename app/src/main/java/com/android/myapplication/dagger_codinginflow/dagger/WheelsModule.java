@@ -1,8 +1,8 @@
 package com.android.myapplication.dagger_codinginflow.dagger;
 
-import com.android.myapplication.dagger_codinginflow.car.Tires;
-import com.android.myapplication.dagger_codinginflow.car.Rims;
-import com.android.myapplication.dagger_codinginflow.car.Wheels;
+import com.android.myapplication.dagger_codinginflow.car.wheels.Tires;
+import com.android.myapplication.dagger_codinginflow.car.wheels.Rims;
+import com.android.myapplication.dagger_codinginflow.car.wheels.Wheels;
 
 import dagger.Module;
 import dagger.Provides;

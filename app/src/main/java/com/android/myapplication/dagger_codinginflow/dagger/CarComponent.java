@@ -1,14 +1,17 @@
 package com.android.myapplication.dagger_codinginflow.dagger;
 
+import androidx.core.app.RemoteInput;
+
 import com.android.myapplication.dagger_codinginflow.MainActivity;
 import com.android.myapplication.dagger_codinginflow.car.Car;
-import com.android.myapplication.dagger_codinginflow.car.PetrolEngine;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
 
+@Singleton
 @Component(modules = {WheelsModule.class, PetrolEngineModule.class})
 public interface CarComponent {
     //the name of the method does not matter

@@ -1,9 +1,8 @@
 package com.android.myapplication.dagger_codinginflow.dagger;
 
-import com.android.myapplication.dagger_codinginflow.car.DieselEngine;
-import com.android.myapplication.dagger_codinginflow.car.Engine;
+import com.android.myapplication.dagger_codinginflow.car.engine.DieselEngine;
+import com.android.myapplication.dagger_codinginflow.car.engine.Engine;
 
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 

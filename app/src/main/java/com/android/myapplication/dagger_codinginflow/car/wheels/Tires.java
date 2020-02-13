@@ -1,4 +1,4 @@
-package com.android.myapplication.dagger_codinginflow.car;
+package com.android.myapplication.dagger_codinginflow.car.wheels;
 
 import android.util.Log;
 
