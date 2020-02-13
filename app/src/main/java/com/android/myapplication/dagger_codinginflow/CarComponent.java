@@ -2,7 +2,7 @@ package com.android.myapplication.dagger_codinginflow;
 
 import dagger.Component;
 
-@Component
+@Component(modules = {PetrolEngineModule.class})
 public interface CarComponent {
     //the name of the method does not matter
     Car getCar();

@@ -2,9 +2,6 @@ package com.android.myapplication.dagger_codinginflow;
 
 import javax.inject.Inject;
 
-public class Engine {
-    @Inject
-    Engine(){
-
-    }
+public interface Engine {
+    void start();
 }
