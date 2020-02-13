@@ -2,24 +2,29 @@ package com.android.myapplication.dagger_codinginflow.dagger;
 
 import com.android.myapplication.dagger_codinginflow.MainActivity;
 import com.android.myapplication.dagger_codinginflow.car.Car;
+import com.android.myapplication.dagger_codinginflow.dagger.modules.DieselEngineModule;
+import com.android.myapplication.dagger_codinginflow.dagger.modules.PetrolEngineModule;
+import com.android.myapplication.dagger_codinginflow.dagger.modules.WheelsModule;
 
 import javax.inject.Named;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.Subcomponent;
 
 @PerActivity
-@Component(dependencies = AppComponent.class,modules = {WheelsModule.class, PetrolEngineModule.class})
+@Subcomponent(modules = {WheelsModule.class, DieselEngineModule.class})
 public interface ActivityComponent {
     //the name of the method does not matter
-    Car getCar();
+
+   Car getCar();
 
     //the name of the method does not matter
     //we cannot specify a superclass as a parameter
     //we have to be specific in the parameter which class we want to inject
     void inject(MainActivity mainActivity);
 
-    @Component.Builder
+/*    @Component.Builder
     interface Builder {
         @BindsInstance
             //Similar to provides,this method allows dagger to provide an int value
@@ -34,5 +39,5 @@ public interface ActivityComponent {
         Builder appComponent(AppComponent component);
 
         ActivityComponent build(); //we have to add this method, we cannot avoid it
-    }
+    }*/
 }

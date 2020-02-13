@@ -5,7 +5,7 @@ import android.app.Application;
 import com.android.myapplication.dagger_codinginflow.dagger.AppComponent;
 import com.android.myapplication.dagger_codinginflow.dagger.DaggerAppComponent;
 
-public class ExampleApp extends Application {
+public class  ExampleApp extends Application {
     private AppComponent mAppComponent;
 
     @Override
