@@ -5,7 +5,7 @@ import com.android.myapplication.dagger_codinginflow.car.Car;
 
 import dagger.Component;
 
-@Component(modules = {DieselEngineModule.class})
+@Component(modules = {WheelsModule.class, DieselEngineModule.class})
 public interface CarComponent {
     //the name of the method does not matter
     Car getCar();

@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.android.myapplication.dagger_codinginflow.car.Car;
 import com.android.myapplication.dagger_codinginflow.dagger.CarComponent;
+import com.android.myapplication.dagger_codinginflow.dagger.DaggerCarComponent;
 
 import javax.inject.Inject;
 
