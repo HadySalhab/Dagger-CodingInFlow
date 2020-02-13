@@ -4,16 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Car car;
+    @Inject
+    Car car; //we cannot inject a private and final field
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CarComponent carComponent = DaggerCarComponent.create();
-        car = carComponent.getCar();
+        //will inject all the member variables of this class, that are annotated with @Inject
+        carComponent.inject(this);
+
         car.drive();
     }
 }
