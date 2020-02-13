@@ -1,8 +1,10 @@
-package com.android.myapplication.dagger_codinginflow;
+package com.android.myapplication.dagger_codinginflow.dagger;
+
+import com.android.myapplication.dagger_codinginflow.car.Engine;
+import com.android.myapplication.dagger_codinginflow.car.PetrolEngine;
 
 import dagger.Binds;
 import dagger.Module;
-import dagger.Provides;
 
 @Module
 public abstract class PetrolEngineModule {

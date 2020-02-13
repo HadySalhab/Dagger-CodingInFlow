@@ -1,8 +1,11 @@
-package com.android.myapplication.dagger_codinginflow;
+package com.android.myapplication.dagger_codinginflow.dagger;
+
+import com.android.myapplication.dagger_codinginflow.MainActivity;
+import com.android.myapplication.dagger_codinginflow.car.Car;
 
 import dagger.Component;
 
-@Component(modules = {PetrolEngineModule.class})
+@Component(modules = {DieselEngineModule.class})
 public interface CarComponent {
     //the name of the method does not matter
     Car getCar();

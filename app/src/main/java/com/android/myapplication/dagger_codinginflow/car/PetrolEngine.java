@@ -1,6 +1,8 @@
-package com.android.myapplication.dagger_codinginflow;
+package com.android.myapplication.dagger_codinginflow.car;
 
 import android.util.Log;
+
+import com.android.myapplication.dagger_codinginflow.car.Engine;
 
 import javax.inject.Inject;
 
